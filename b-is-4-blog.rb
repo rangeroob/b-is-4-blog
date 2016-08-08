@@ -53,7 +53,7 @@ Cuba.define do
       @css2 = "<link rel='stylesheet' type='text/css' href='/css/blog.css'>"
       where_post =  posts.where[:title => 'Lorem ipsum dolor sit amet']
       @title = where_post.fetch(:title)
-      @body = where_post.fetch(:body)
+      @front_body = where_post.fetch(:body)
       @footer = "&copy Derek Viera"
       res.write view("layout")
     end

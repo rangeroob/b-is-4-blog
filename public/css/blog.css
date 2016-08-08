@@ -21,3 +21,7 @@ body:before {
 	width:0;
 	margin-top:-32767px;/
 }
+
+.w3-navbar .w3-dropdown-hover:hover,.w3-navbar .w3-dropdown-hover:first-child,.w3-navbar .w3-dropdown-click:hover{background-color:#ffffff;color:#000}
+
+.w3-navbar li{float:left}.w3-navbar li a{display:block;padding:8px 16px}.w3-navbar li a:hover{color:#000;background-color:#ffffff}

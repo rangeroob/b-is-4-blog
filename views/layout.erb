@@ -13,19 +13,30 @@
 	
 
 	<div id="header">
-	<div class="w3-container w3-text-deep-purple w3-pale-blue w3-border-bottom w3-border-white">
+	<div class="w3-container w3-text-deep-purple w3-pale-blue w3-border-bottom w3-border-white"> 
 	<h1><%= @title %></h1>
 	</div>
 	</div>
 	<div id="main">
 		<div class="w3-row">
 		<div class="w3-container w3-quarter w3-text-deep-purple w3-pale-blue">
-			<p> Home </p>
-			<p> Article DD-MM-YYYY </p>
+        <ul class="w3-navbar  w3-text-deep-purple w3-pale-blue">
+  <li><a href="#" >Home</a></li>
+  <li class="w3-dropdown-hover">
+    <a href="#">Dropdown</a>
+    <div class="w3-dropdown-content w3-text-deep-purple w3-pale-blue">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </li>
+</ul>
+  
+</script>
 			
 			</div>
 			<div class="w3-container w3-rest">
-				<p><%= @body %></p>
+				<p><%= @front_body %></p>
 				</div>
 				</div>
 	<p></p>
