@@ -1,0 +1,25 @@
+/* custom navbar */
+
+.w3-navbar {
+  .w3-dropdown-hover {
+    &:hover, &:first-child {
+      background-color: #ffffff;
+      color: #000;
+    }
+  }
+  .w3-dropdown-click:hover {
+    background-color: #ffffff;
+    color: #000;
+  }
+  li {
+    float: left;
+    a {
+      display: block;
+      padding: 8px 16px;
+      &:hover {
+        color: #000;
+        background-color: #ffffff;
+      }
+    }
+  }
+}

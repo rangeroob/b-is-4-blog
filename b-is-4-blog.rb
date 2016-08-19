@@ -51,8 +51,7 @@ Cuba.define do
   on get do
 
     on root do
-      @css = "<link rel='stylesheet' type='text/css' href='/css/w3-minify.css'>"
-      @css2 = "<link rel='stylesheet' type='text/css' href='/css/custom-minify.css'>"
+      @css = "<link rel='stylesheet' type='text/css' href='/css/style-minify.css'>"
       where_post =  posts.where[:title => 'Lorem ipsum dolor sit amet']
       @title = where_post.fetch(:title)
       @front_body = where_post.fetch(:body)
