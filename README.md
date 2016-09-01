@@ -1,2 +1,2 @@
 # b-is-4-blog
-[WIP] blog built with ruby using cuba erb and sequel.
+[WIP] blog built with ruby using cuba, erb, scss and sequel.
