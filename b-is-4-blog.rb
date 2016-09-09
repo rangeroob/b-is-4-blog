@@ -35,7 +35,7 @@ Ut tempus porttitor erat a mattis. Sed a ipsum pellentesque, maximus nulla sed, 
 
 Duis molestie vel purus ut fermentum. <p>Nunc et vulputate diam. Aenean pellentesque porta enim. Nulla congue tellus nulla, non pretium velit tempus in. Nam eu quam orci. Morbi tortor elit, rutrum at arcu ac, ultrices sagittis nunc. Suspendisse pellentesque blandit risus sed vestibulum. Integer interdum scelerisque sem, ac pulvinar ipsum eleifend quis. Suspendisse et ex at sem ullamcorper suscipit eget id diam. Sed et gravida nibh, at aliquet velit. Proin ac lacus et dolor pharetra molestie quis et elit.
 
-Etiam augue lacus, pharetra ut lacus eleifend, tristique consequat arcu. In tortor dolor, semper vitae interdum sit amet, vestibulum ac mi.</p>')
+Etiam augue lacus, pharetra ut lacus eleifend, tristique consequat arcu. In tortor dolor, semper vitae interdum sit amet, vestibulum ac mi.</p>', :date => '09_27_2015')
 
 
   Cuba.use Rack::Static, root: "public", urls: ["/css"]
@@ -50,7 +50,7 @@ Etiam augue lacus, pharetra ut lacus eleifend, tristique consequat arcu. In tort
 Cuba.define do
   on get do
 
-    on root do
+    on root do 
       @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
       where_post =  posts.where[:title => 'Lorem ipsum dolor sit amet']
       @title = where_post.fetch(:title)
@@ -58,7 +58,15 @@ Cuba.define do
       @footer = "&copy Derek Viera"
       res.write view("layout")
     end
-  
+    
+  on "articles/09_27_2015" do
+	where_post =  posts.where[:date => '09_27_2015']
+      @title = where_post.fetch(:title)
+      @front_body = where_post.fetch(:body)
+    @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
+	res.write view("layout")
+	end
+	
   end
 end
 
