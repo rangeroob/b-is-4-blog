@@ -3,6 +3,7 @@ require 'rack/protection'
 require "cuba/render"
 require 'erb'
 require 'sequel'
+require 'date'
 
 Cuba.use Rack::Session::Cookie, :secret => "wVmZ0Xk+AUsBTA55YIjLLzWNUlk/jnTnU7orZ5vAAeQqVi0iOe3pex/7jtIKh9+RaJ/IBwBubKjna5zQ2tLkKA=="
 Cuba.use Rack::Protection
@@ -16,7 +17,7 @@ DB.create_table :posts do
   primary_key :id
   String :title
   String :body
-  String :date
+  Date :date
 end
 
 # create a dataset from the items table
@@ -35,7 +36,8 @@ Ut tempus porttitor erat a mattis. Sed a ipsum pellentesque, maximus nulla sed, 
 
 Duis molestie vel purus ut fermentum. <p>Nunc et vulputate diam. Aenean pellentesque porta enim. Nulla congue tellus nulla, non pretium velit tempus in. Nam eu quam orci. Morbi tortor elit, rutrum at arcu ac, ultrices sagittis nunc. Suspendisse pellentesque blandit risus sed vestibulum. Integer interdum scelerisque sem, ac pulvinar ipsum eleifend quis. Suspendisse et ex at sem ullamcorper suscipit eget id diam. Sed et gravida nibh, at aliquet velit. Proin ac lacus et dolor pharetra molestie quis et elit.
 
-Etiam augue lacus, pharetra ut lacus eleifend, tristique consequat arcu. In tortor dolor, semper vitae interdum sit amet, vestibulum ac mi.</p>', :date => '09_27_2015')
+Etiam augue lacus, pharetra ut lacus eleifend, tristique consequat arcu. In tortor dolor, semper vitae interdum sit amet, vestibulum ac mi.</p>',
+ :date => Date.new(2015,9,27))
 
   posts.insert( :title => 'The Communist Manifesto', :body => "<br>
 Manifesto of the Communist Party<br>
@@ -905,7 +907,7 @@ English Edition]<br>
 <br>
 <br>
 <br>
-", :date => '02_XX_1848')
+", :date => Date.new(1848,2))
 
 
 
@@ -930,8 +932,8 @@ Cuba.define do
       res.write view("layout")
     end
     
-  on "articles/02_XX_1848" do
-	where_post =  posts.where[:date => '02_XX_1848']
+  on "articles/1848_2" do
+	where_post =  posts.where[:title => 'The Communist Manifesto']
       @title = where_post.fetch(:title)
       @front_body = where_post.fetch(:body)
     @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
