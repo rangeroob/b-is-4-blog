@@ -932,7 +932,7 @@ Cuba.define do
       res.write view("layout")
     end
     
-  on "articles/1848_2" do
+  on "articles/1848/The_Communist_Manifesto" do
 	where_post =  posts.where[:title => 'The Communist Manifesto']
       @title = where_post.fetch(:title)
       @front_body = where_post.fetch(:body)
