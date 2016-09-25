@@ -9,7 +9,7 @@ Cuba.use Rack::Session::Cookie, :secret => "wVmZ0Xk+AUsBTA55YIjLLzWNUlk/jnTnU7or
 Cuba.use Rack::Protection
 Cuba.use Rack::Protection::RemoteReferrer
 
-  # connect to an in-memory database
+  # connect to a database
 DB = Sequel.connect('sqlite://db/blog.db', :max_connections=>200)
 
 
@@ -38,9 +38,8 @@ Cuba.define do
     end
     
   on "articles" do
-	#where_post =  posts.where[:title => 'The Communist Manifesto']
-      #@title = where_post.fetch(:title)
-      #@front_body = where_post.fetch(:body)
+	where_post =  posts.where[:id => 2]
+	@title = where_post.fetch(:title)  
     @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
 	res.write partial ("articles")
 	end
