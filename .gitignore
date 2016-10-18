@@ -1,7 +1,9 @@
 *.gem
 *.rbc
+/.sass-cache/
 /.config
 /coverage/
+/db/
 /InstalledFiles
 /pkg/
 /spec/reports/
