@@ -43,6 +43,12 @@ Cuba.define do
     @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
 	res.write partial ("articles")
 	end
-	
+	on "forms" do
+	res.write partial ("forms")
+	end
+	on "search", param("search") do |query|
+      res.write "Searched for #{query}" #=> "Searched for barbaz"
+    end
   end
-end
+	end  
+
