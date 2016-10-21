@@ -4,6 +4,7 @@ require "cuba/render"
 require 'erb'
 require 'sequel'
 require 'date'
+require 'base64'
 
 Cuba.use Rack::Session::Cookie, :secret => "wVmZ0Xk+AUsBTA55YIjLLzWNUlk/jnTnU7orZ5vAAeQqVi0iOe3pex/7jtIKh9+RaJ/IBwBubKjna5zQ2tLkKA=="
 Cuba.use Rack::Protection
@@ -27,7 +28,7 @@ DB = Sequel.connect('sqlite://db/blog.db', :max_connections=>200)
  
 Cuba.define do
   on get do
-
+  
     on root do 
       @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
       where_post =  posts.where[:title => 'Lorem ipsum dolor sit amet']
@@ -45,8 +46,10 @@ Cuba.define do
 	end
 	
 	on "search", param("search") do |query|
-      res.write "Searched for #{query}" #=> "Searched for barbaz"
+	  @css = "<link rel='stylesheet' type='text/css' href='/css/style.css'>"
+	  where_post = posts.where[:id => "#{query}"]
+	  @title = where_post.fetch(:title)
+      res.write partial ("articles")
     end
-  end
-	end  
-
+    end
+end  
